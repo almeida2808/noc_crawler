@@ -1,5 +1,5 @@
 import re
-import getpass
+import sys
 from urllib.parse import quote
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -25,7 +25,7 @@ def get_todays_classes():
     username, professor_name = get_info()
 
     # login information
-    password = getpass.getpass()
+    password = sys.argv[1]
 
     #accessing the site
     driver = webdriver.Chrome(ChromeDriverManager().install())
