@@ -1,0 +1,5 @@
+on run {input, parameters}
+    set pass_word to text returned of (display dialog "Entre a sua senha se quiser extrair os eventos do Insper para o calendário!:" default answer "" with hidden answer)
+    
+    do shell script "cd ~/Dropbox/my_cloud/misc/insper_utils/ && /opt/anaconda3/bin/python noc_crawler.py " & quoted form of pass_word
+end run
