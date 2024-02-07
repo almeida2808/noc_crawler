@@ -3,6 +3,7 @@ import sys
 from urllib.parse import quote
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -35,7 +36,7 @@ def get_todays_classes():
     chrome_options.add_argument("--headless")
 
     # use chrome_options in driver setup
-    driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=chrome_options)
     driver.get(f'https://{quote(username)}:{quote(password)}@noc.insper.edu.br')
 
     driver.switch_to.frame("menu")
